@@ -14,7 +14,7 @@ const {
   loginController,
   registerController,
   logoutController,
-} = require("./controlles/auth");
+} = require("./controllers/auth");
 const {
   userValidator,
   userValidationHandler,
@@ -22,7 +22,7 @@ const {
 
 const authenticate = require("./midlewares/authenticate");
 
-const { urlShortner, allLink, urlRedirect } = require("./controlles/urlMaker");
+const { urlShortner, allLink, urlRedirect } = require("./controllers/urlMaker");
 
 dotenv.config();
 
@@ -57,6 +57,7 @@ app.post("/register", userValidator, userValidationHandler, registerController);
 app.post("/shortner", authenticate, urlShortner);
 app.get("/showAll", authenticate, allLink);
 app.get("/:shortLink", urlRedirect);
+app.post("/logout", logoutController);
 
 app.listen(process.env.PORT_NUMBER, () => {
   console.log(`Application running on ${process.env.PORT_NUMBER}`);

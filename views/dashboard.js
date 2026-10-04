@@ -9,6 +9,7 @@ const copyBtn = document.getElementById("copyBtn");
 const urlList = document.getElementById("urlList");
 const urlCount = document.getElementById("urlCount");
 const noUrlMessage = document.getElementById("noUrlMessage");
+const logoutBtn = document.getElementById("logoutBtn");
 
 // Load dashboard data
 document.addEventListener("DOMContentLoaded", async () => {
@@ -171,3 +172,18 @@ function updateUrlCount() {
 
   urlCount.textContent = `${count} ${count === 1 ? "link" : "links"}`;
 }
+
+logoutBtn.addEventListener("click", async () => {
+  try {
+    const response = await fetch("/logout", {
+      method: "POST",
+    });
+
+    if (response.ok) {
+      alert("Logout done successfully!");
+      window.location.href = "/";
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});

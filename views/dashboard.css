@@ -52,10 +52,27 @@ body {
 .user-info {
   font-size: 14px;
   color: #77778a;
+   display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .user-info strong {
   color: #17172a;
+}
+#logoutBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    background: #e74c3c;
+    color: white;
+}
+
+#logoutBtn:hover {
+    background: #c0392b;
 }
 
 /* Dashboard */
