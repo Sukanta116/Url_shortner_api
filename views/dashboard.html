@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Urlio - Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <img src="/logo.jpg" alt="urlio" height="60">
+      </div>
+
+      <div class="user-info">
+        <span>Hello, <strong id="userName"></strong></span>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="intro">
+        <span class="badge">Simple & Fast</span>
+        <h1>Shorten your URL</h1>
+        <p>Create short and easy-to-share links.</p>
+      </section>
+
+      <!-- URL Shortener -->
+      <section class="url-card">
+        <label for="urlInput">Enter your long URL</label>
+        <label id="errorMessage"></label>
+        <div class="input-wrapper">
+          <input
+            type="url"
+            id="urlInput"
+            placeholder="https://example.com/very-long-url"
+          />
+          <button id="shortenBtn">Shorten</button>
+        </div>
+      </section>
+
+       <!-- Current Result: Show Output -->
+<section class="output-card hidden" id="outputCard">
+    <span class="output-label">YOUR SHORT URL</span>
+
+    <div class="short-url-row">
+        <span id="shortUrl"></span>
+        <button id="copyBtn">Copy</button>
+    </div>
+
+    <p id="originalUrl"></p>
+</section>
+
+<!-- User's URLs: Get All -->
+<section class="urls-section">
+    <div class="section-header">
+        <h2>Your URLs</h2>
+        <span id="urlCount">0 links</span>
+    </div>
+
+    <div class="url-list" id="urlList">
+        <p id="noUrlMessage">No URLs yet</p>
+    </div>
+
+        </div>
+      </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

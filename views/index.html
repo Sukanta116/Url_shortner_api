@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Urlio - Login</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="auth-container">
+      <!-- LEFT SIDE -->
+      <section class="showcase">
+        <div class="brand">
+         <img src="/logo.jpg" alt="urlio" height="60">
+        </div>
+
+        <div class="showcase-content">
+          <div class="badge">
+            <span class="pulse"></span>
+            Simple. Fast. Short.
+          </div>
+
+          <h1>
+            Your links,<br />
+            <span>shorter.</span>
+          </h1>
+
+          <p class="description">
+            Transform long, complicated URLs into simple links that are easy to
+            share.
+          </p>
+
+          <!-- URL ANIMATION -->
+          <div class="url-animation">
+            <div class="url-card long-url">
+              <div class="url-label">
+                <span class="dot"></span>
+                LONG URL
+              </div>
+
+              <div id="longUrl">https://example.com/products/</div>
+            </div>
+
+            <div class="arrow">
+              <div class="arrow-line"></div>
+              <div class="arrow-head">↓</div>
+            </div>
+
+            <div class="url-card short-url">
+              <div class="url-label">
+                <span class="dot"></span>
+                SHORT URL
+              </div>
+
+              <div class="short-link">
+                linkora<span>/</span><strong id="shortUrl">x7Kp2</strong>
+              </div>
+
+              <button class="copy-btn" id="copyBtn">Copy</button>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div>
+              <strong>10M+</strong>
+              <span>Links shortened</span>
+            </div>
+
+            <div>
+              <strong>99.9%</strong>
+              <span>Uptime</span>
+            </div>
+
+            <div>
+              <strong>Fast</strong>
+              <span>Redirection</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDE -->
+      <section class="auth-section">
+        <div class="auth-box">
+          <!-- LOGIN -->
+
+          <div id="loginPage">
+            <div class="mobile-brand">Urlio</div>
+
+            <h2>Welcome back</h2>
+
+            <p class="subtitle">Sign in to continue to your account.</p>
+
+            <div id="loginAlert" class="alert"></div>
+
+
+            <form id="loginForm">
+              <div class="input-group">
+                <label for="loginEmail"> Email </label>
+
+                <input
+                  type="email"
+                  id="loginEmail"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <div class="label-row">
+                  <label for="loginPassword"> Password </label>
+
+                  <a href="#"> Forgot password? </a>
+                </div>
+
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="primary-btn">Sign in</button>
+            </form>
+
+            <div class="divider">
+              <span>or</span>
+            </div>
+
+            <button class="google-btn" id="loginGoogleBtn">
+              <span class="google-icon">G</span>
+              Continue with Google
+            </button>
+
+            <p class="switch-text">
+              Don't have an account?
+
+              <button id="showRegister" class="link-btn">Create account</button>
+            </p>
+          </div>
+
+          <!-- REGISTER -->
+
+          <div id="registerPage" class="hidden">
+            <div class="mobile-brand">Urlio</div>
+
+            <h2>Create account</h2>
+
+            <p class="subtitle">Start creating shorter, smarter links.</p>
+
+             <div id="registerAlert" class="alert"></div>
+
+            <button class="google-btn" id="googleBtn">
+              <span class="google-icon">G</span>
+              Sign up with Google
+            </button>
+
+            <div class="divider">
+              <span>or</span>
+            </div>
+
+            <form id="registerForm">
+              <div class="name-row">
+                <div class="input-group">
+                  <label> First name </label>
+
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="John"
+                    required
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label> Last name </label>
+
+                  <input type="text" id="lastName" placeholder="Doe" required />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label> Email </label>
+
+                <input
+                  type="email"
+                  id="registerEmail"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label> Password </label>
+
+                <input
+                  type="password"
+                  id="registerPassword"
+                  placeholder="Create a password"
+                  required
+                />
+              </div>
+
+              <label class="terms">
+                <input type="radio" name="terms" required />
+
+                <span>
+                  I agree to the
+                  <a href="#"> Terms & Conditions </a>
+                </span>
+              </label>
+
+              <button type="submit" class="primary-btn">Create account</button>
+            </form>
+
+            <p class="switch-text">
+              Already have an account?
+
+              <button id="showLogin" class="link-btn">Sign in</button>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
