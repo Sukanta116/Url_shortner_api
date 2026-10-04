@@ -253,7 +253,8 @@ Each shortened URL is associated with the user who created it.
 </td>
 </tr>
 </table>
-## ⚙️ Environment Variables
+
+### ⚙️ Environment Variables
 
 Create a `.env` file in the project root:
 
