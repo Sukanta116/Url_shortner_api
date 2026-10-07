@@ -37,7 +37,7 @@ I built this project to understand how a real backend service works beyond basic
 The project focuses on practical backend concepts such as:
 
 - REST API development
-- User authentication and authorization
+- User authentication
 - JWT-based authentication
 - Password hashing
 - HTTP cookies
