@@ -83,7 +83,7 @@ shortenBtn.addEventListener("click", async () => {
     }
 
     // Show current shortened URL
-    shortUrl.textContent = `http://localhost:4000/${result.data}`;
+    shortUrl.textContent = `${process.env.BASE_URL}${result.data}`;
     originalUrl.textContent = longUrl;
 
     outputCard.classList.remove("hidden");
@@ -133,9 +133,9 @@ function addUrlToHistory(shortLink, longUrl) {
 
   urlItem.innerHTML = `
         <div class="url-details">
-            <a href="http://localhost:4000/${shortLink}" target="_blank">
-                http://localhost:4000/${shortLink}
-            </a>
+            <a href="${process.env.BASE_URL}${shortLink}" target="_blank">
+    ${process.env.BASE_URL}${shortLink}
+</a>
 
             <p>${longUrl}</p>
         </div>
@@ -151,7 +151,7 @@ function addUrlToHistory(shortLink, longUrl) {
   const historyCopyBtn = urlItem.querySelector(".copy-history-btn");
 
   historyCopyBtn.addEventListener("click", async () => {
-    const link = `http://localhost:4000/${shortLink}`;
+    const link = `${process.env.BASE_URL}${shortLink}`;
 
     await navigator.clipboard.writeText(link);
 
