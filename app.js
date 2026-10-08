@@ -59,6 +59,6 @@ app.get("/showAll", authenticate, allLink);
 app.get("/:shortLink", urlRedirect);
 app.post("/logout", logoutController);
 
-app.listen(process.env.PORT_NUMBER, () => {
-  console.log(`Application running on ${process.env.PORT_NUMBER}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Application running on ${process.env.PORT}`);
 });
