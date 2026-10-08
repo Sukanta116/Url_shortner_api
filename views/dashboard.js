@@ -11,6 +11,9 @@ const urlCount = document.getElementById("urlCount");
 const noUrlMessage = document.getElementById("noUrlMessage");
 const logoutBtn = document.getElementById("logoutBtn");
 
+// Base URL for the current website
+const BASE_URL = window.location.origin;
+
 // Load dashboard data
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -35,8 +38,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Update URL count
-    urlCount.textContent = `${result.length} ${
-      result.length === 1 ? "link" : "links"
+    urlCount.textContent = `${result.data.length} ${
+      result.data.length === 1 ? "link" : "links"
     }`;
 
     // No previous URLs
@@ -83,7 +86,8 @@ shortenBtn.addEventListener("click", async () => {
     }
 
     // Show current shortened URL
-    shortUrl.textContent = `${process.env.BASE_URL}${result.data}`;
+    shortUrl.textContent = `${BASE_URL}/${result.data}`;
+
     originalUrl.textContent = longUrl;
 
     outputCard.classList.remove("hidden");
@@ -114,7 +118,7 @@ urlInput.addEventListener("keydown", (event) => {
 
 // Copy current shortened URL
 copyBtn.addEventListener("click", async () => {
-  const link = `${shortUrl.textContent}`;
+  const link = shortUrl.textContent;
 
   await navigator.clipboard.writeText(link);
 
@@ -133,10 +137,9 @@ function addUrlToHistory(shortLink, longUrl) {
 
   urlItem.innerHTML = `
         <div class="url-details">
-            <a href="${process.env.BASE_URL}${shortLink}" target="_blank">
-    ${process.env.BASE_URL}${shortLink}
-</a>
-
+            <a href="${BASE_URL}/${shortLink}" target="_blank">
+                ${BASE_URL}/${shortLink}
+            </a>
             <p>${longUrl}</p>
         </div>
 
@@ -151,7 +154,7 @@ function addUrlToHistory(shortLink, longUrl) {
   const historyCopyBtn = urlItem.querySelector(".copy-history-btn");
 
   historyCopyBtn.addEventListener("click", async () => {
-    const link = `${process.env.BASE_URL}${shortLink}`;
+    const link = `${BASE_URL}/${shortLink}`;
 
     await navigator.clipboard.writeText(link);
 
@@ -173,6 +176,7 @@ function updateUrlCount() {
   urlCount.textContent = `${count} ${count === 1 ? "link" : "links"}`;
 }
 
+// Logout
 logoutBtn.addEventListener("click", async () => {
   try {
     const response = await fetch("/logout", {
